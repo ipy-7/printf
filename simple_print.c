@@ -9,19 +9,19 @@
  * @except: ...
  * Return: the number of characters written to stdout
  */
-int print_from_to(char *start, char *stop, char *except)
+int print_from_to(char* start, char* stop, char* except)
 {
-        int cnt;
+	int cnt;
 
-        cnt = 0;
-        while (start <= stop)
-        {
-                if (start != except)
-                        _putchar(*start);
-                start++;
-        }
+	cnt = 0;
+	while (start <= stop)
+	{
+		if (start != except)
+			_putchar(*start);
+		start++;
+	}
 
-        return (cnt);
+	return (cnt);
 }
 
 /**
@@ -30,23 +30,23 @@ int print_from_to(char *start, char *stop, char *except)
  * @params: the pointer to the params_t (flag values)
  * Return: the number of characters written to stdout
  */
-int print_rev(va_list ap, params_t *params)
+int print_rev(va_list ap, params_t* params)
 {
-        int len, i;
-        char *s;
+	int len, i;
+	char* s;
 
-        s = va_arg(ap, char *);
-        len = _strlen(s);
+	s = va_arg(ap, char*);
+	len = _strlen(s);
 
-        if (!s)
-                return (0);
+	if (!s)
+		return (0);
 
-        for (i = len - 1; i >= 0; i--)
-        {
-                _putchar(s[i]);
-        }
+	for (i = len - 1; i >= 0; i--)
+	{
+		_putchar(s[i]);
+	}
 
-        return (len);
+	return (len);
 }
 
 /**
@@ -55,29 +55,29 @@ int print_rev(va_list ap, params_t *params)
  * @params: the pointer to the params_t (flag values)
  * Return: the number of characters written to stdout
  */
-int print_rot13(va_list ap, params_t *params)
+int print_rot13(va_list ap, params_t* params)
 {
-        int i, len, mod;
-        char *s, c;
+	int i, len, mod;
+	char* s, c;
 
-        s = va_arg(ap, char *);
-        len = _strlen(s);
+	s = va_arg(ap, char*);
+	len = _strlen(s);
 
-        if (!s)
-                return (0);
+	if (!s)
+		return (0);
 
-        for (i = 0; i < len; i++)
-        {
-                mod = (isupper(s[i]) ? 90 : 122);
-                c = (s[i] + 13) % mod;
+	for (i = 0; i < len; i++)
+	{
+		mod = (isupper(s[i]) ? 90 : 122);
+		c = (s[i] + 13) % mod;
 
-                if (c < (mod - 26))
-                {
-                        c += (mod - 26);
-                }
+		if (c < (mod - 26))
+		{
+			c += (mod - 26);
+		}
 
-                _putchar(c);
-        }
+		_putchar(c);
+	}
 
-        return (len);
+	return (len);
 }
