@@ -9,7 +9,7 @@
  * @except: ...
  * Return: the number of characters written to stdout
  */
-int print_from_to(char* start, char* stop, char* except)
+int print_from_to(char *start, char *stop, char *except)
 {
 	int cnt;
 
@@ -30,12 +30,12 @@ int print_from_to(char* start, char* stop, char* except)
  * @params: the pointer to the params_t (flag values)
  * Return: the number of characters written to stdout
  */
-int print_rev(va_list ap, params_t* params)
+int print_rev(va_list ap, params_t *params)
 {
 	int len, i;
-	char* s;
+	char *s;
 
-	s = va_arg(ap, char*);
+	s = va_arg(ap, char *);
 	len = _strlen(s);
 
 	if (!s)
@@ -55,10 +55,10 @@ int print_rev(va_list ap, params_t* params)
  * @params: the pointer to the params_t (flag values)
  * Return: the number of characters written to stdout
  */
-int print_rot13(va_list ap, params_t* params)
+int print_rot13(va_list ap, params_t *params)
 {
 	int i, len, mod;
-	char* s, c;
+	char *s, c;
 
 	s = va_arg(ap, char*);
 	len = _strlen(s);
