@@ -39,9 +39,9 @@ int _strlen(char *s)
  */
 int print_number(char *str, params_t *params)
 {
-	int i, neg;
+	unsigned int i, neg;
 
-	i = _strlen(str);
+	i = (unsigned int)_strlen(str);
 	neg = (!params->unsign && *str == '-');
 
 	if (params->precision != UINT_MAX)

@@ -106,7 +106,7 @@ return (_putchar('%'));
 *
 *Return: number chars printed
 */
-int print_S(va_list ap, params_t *params)
+int print_s(va_list ap, params_t *params)
 {
 char *str = va_arg(ap, char *);
 char *hex;

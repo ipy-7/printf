@@ -1,6 +1,7 @@
 #include "main.h"
 #include <stdio.h>
 #include <string.h>
+#include <ctype.h>
 
 /**
  * print_from_to - prints pointer values from start to stop
@@ -37,6 +38,7 @@ int print_rev(va_list ap, params_t *params)
 
 	s = va_arg(ap, char *);
 	len = _strlen(s);
+	(void)params;
 
 	if (!s)
 		return (0);
@@ -60,6 +62,7 @@ int print_rot13(va_list ap, params_t *params)
 	int i, len, mod;
 	char *s, c;
 
+	(void)params;
 	s = va_arg(ap, char*);
 	len = _strlen(s);
 

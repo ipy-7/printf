@@ -13,7 +13,8 @@
  */
 char *convert(long int num, int base, int flags, params_t *params)
 {
-	char *s, *arr, buffer[50], sign;
+	char sign;
+	static char buffer[50];
 	unsigned long i, x;
 	(void)params;
 	sign = 0;
@@ -25,7 +26,7 @@ char *convert(long int num, int base, int flags, params_t *params)
 		sign = '-';
 	}
 
-	arr = (flags & CONVERT_LOWERCASE) ? "0123456789abcdef" : "0123456789ABCDEF";
+	/* arr = (flags & CONVERT_LOWERCASE) ? "0123456789abcdef" : "0123456789ABCDEF"; */
 	buffer[49] = '\0';
 	i = 48;
 
@@ -74,9 +75,9 @@ int print_unsigned(va_list ap, params_t *params)
 int print_address(va_list ap, params_t *params)
 {
 	unsigned long x;
+	char *s;
 
 	x = va_arg(ap, unsigned long int);
-	char *s;
 
 	if (!x)
 		return (_puts("(nil)"));

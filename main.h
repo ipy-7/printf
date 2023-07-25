@@ -34,16 +34,16 @@
 
 typedef struct parameters
 {
-	unsigned int unsign			:1;
-	unsigned int plus_flag		:1;
-	unsigned int space_flag		:1;
-	unsigned int hashtag_flag	:1;
-	unsigned int zero_flag		:1;
-	unsigned int minus_flag		:1;
-	unsigned int width			:1;
-	unsigned int precision		:1;
-	unsigned int h_modifier		:1;
-	unsigned int l_modifier		:1;
+	unsigned int unsign;
+	unsigned int plus_flag;
+	unsigned int space_flag;
+	unsigned int hashtag_flag;
+	unsigned int zero_flag;
+	unsigned int minus_flag;
+	unsigned int width;
+	unsigned int precision;
+	unsigned int h_modifier;
+	unsigned int l_modifier;
 } params_t;
 
 /**
@@ -98,7 +98,7 @@ int print_number_right_shift(char *str, params_t *params);
 int print_number_left_shift(char *str, params_t *params);
 
 /*params*/
-void int_params(params_t *params, va_list ap);
+void init_params(params_t *params, va_list ap);
 
 /*string field*/
 char *get_precision(char *p, params_t *params, va_list ap);

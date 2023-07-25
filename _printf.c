@@ -21,7 +21,7 @@ if (format[0] == '%' && format[1] == ' ' && !format[2])
 return (-1);
 for (p = (char *)format; *p; p++)
 {
-int_params(&params, ap);
+init_params(&params, ap);
 if (*p != '%')
 {
 sum += _putchar(*p);
