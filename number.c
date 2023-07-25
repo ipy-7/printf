@@ -57,7 +57,7 @@ int print_unsigned(va_list ap, params_t *params)
 	if (params->l_modifier)
 		x = va_arg(ap, unsigned long);
 	else if (params->h_modifier)
-		x = va_arg(ap, unsigned short int);
+		x = va_arg(ap, int );
 	else
 		x = va_arg(ap, unsigned int);
 
