@@ -14,7 +14,7 @@
 char *convert(long int num, int base, int flags, params_t *params)
 {
 	char sign;
-	static char buffer[50];
+	static char buffer[50], *arr;
 	unsigned long i, x;
 	(void)params;
 	sign = 0;
@@ -28,10 +28,11 @@ char *convert(long int num, int base, int flags, params_t *params)
 
 	buffer[49] = '\0';
 	i = 48;
+	arr = (flags & CONVERT_LOWERCASE ? "0123456789abcdef" : "012345679ABCDEF");
 
 	while (x)
 	{
-		buffer[i] = x % base;
+		buffer[i] = arr[x % base];
 		x /= base;
 		i--;
 	}
