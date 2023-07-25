@@ -13,12 +13,13 @@
  */
 char *convert(long int num, int base, int flags, params_t *params)
 {
-	char sign;
+	char sign, *ptr;
 	static char buffer[50], *arr;
-	unsigned long i, x;
+	unsigned long x;
 	(void)params;
 	sign = 0;
 	x = num;
+	ptr = &buffer[49];
 
 	if (!(flags & CONVERT_UNSIGNED) && num < 0)
 	{
@@ -26,23 +27,24 @@ char *convert(long int num, int base, int flags, params_t *params)
 		sign = '-';
 	}
 
-	buffer[49] = '\0';
-	i = 48;
+	*ptr = '\0';
 	arr = (flags & CONVERT_LOWERCASE ? "0123456789abcdef" : "012345679ABCDEF");
+
+	if (!x)
+		*--ptr = '0';
 
 	while (x)
 	{
-		buffer[i] = arr[x % base];
+		*--ptr = arr[x % base];
 		x /= base;
-		i--;
 	}
 
 	if (sign)
 	{
-		buffer[i--] = sign;
+		*--ptr = sign;
 	}
 
-	return (&buffer[i + 1]);
+	return (ptr);
 }
 
 /**
