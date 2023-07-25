@@ -111,6 +111,7 @@ int print_s(va_list ap, params_t *params)
 	char *str = va_arg(ap, char *);
 	char *hex;
 	int sum = 0;
+
 	if ((int)(!str))
 		return (_puts(NULL_STRING));
 	for (; *str; str++)

@@ -28,7 +28,7 @@ char *convert(long int num, int base, int flags, params_t *params)
 	}
 
 	*ptr = '\0';
-	arr = (flags & CONVERT_LOWERCASE ? "0123456789abcdef" : "012345679ABCDEF");
+	arr = (flags & CONVERT_LOWERCASE ? "0123456789abcdef" : "0123456789ABCDEF");
 
 	if (!x)
 		*--ptr = '0';
