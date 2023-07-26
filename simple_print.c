@@ -60,10 +60,10 @@ int print_rev(va_list ap, params_t *params)
 int print_rot13(va_list ap, params_t *params)
 {
 	int i, len, mod;
-	char *s, c;
+	char *s, c, a;
 
 	(void)params;
-	s = va_arg(ap, char*);
+	s = va_arg(ap, char *);
 	len = _strlen(s);
 
 	if (!s)
@@ -73,10 +73,15 @@ int print_rot13(va_list ap, params_t *params)
 	{
 		mod = (isupper(s[i]) ? 90 : 122);
 		c = (s[i] + 13) % mod;
+		a = (mod - 26);
 
-		if (c < (mod - 26))
+		if (!c)
 		{
-			c += (mod - 26);
+			c = mod;
+		}
+		else if (c < a)
+		{
+			c += a;
 		}
 
 		_putchar(c);
