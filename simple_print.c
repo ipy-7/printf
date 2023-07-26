@@ -59,8 +59,8 @@ int print_rev(va_list ap, params_t *params)
  */
 int print_rot13(va_list ap, params_t *params)
 {
-	int i, len, mod;
-	char *s, c, a;
+	int i, len;
+	char *s, c, *a, minus;
 
 	(void)params;
 	s = va_arg(ap, char *);
@@ -71,20 +71,11 @@ int print_rot13(va_list ap, params_t *params)
 
 	for (i = 0; i < len; i++)
 	{
-		mod = (isupper(s[i]) ? 90 : 122);
-		c = (s[i] + 13) % mod;
-		a = (mod - 26);
+		c = s[i];
+		a = islower(c) ? "abcdefghijklmnopqrstuvwxyz" : "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+		minus = islower(c) ? 'a' : 'A';
 
-		if (!c)
-		{
-			c = mod;
-		}
-		else if (c < a)
-		{
-			c += a;
-		}
-
-		_putchar(c);
+		_putchar(a[(c - minus + 13) % 26]);
 	}
 
 	return (len);
